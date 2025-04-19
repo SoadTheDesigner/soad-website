@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سعاد عادل</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff;
+      text-align: center;
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    h1 {
+      margin-top: 20px;
+      color: #000;
+    }
+
+    .tabs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+      gap: 10px;
+    }
+
+    .tab-button {
+      background-color: #87CEEB;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+      width: 60%;
+    }
+
+    .tab-button:hover {
+      background-color: #00bfff;
+    }
+
+    .bottom-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px 20px;
+    }
+
+    .bottom-button {
+      background-color: #87CEEB;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .bottom-button:hover {
+      background-color: #00bfff;
+    }
+
+    .content {
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #000;
+      min-height: 100px;
+    }
+
+    .pink {
+      color: hotpink;
+    }
+
+    /* الوضع الليلي */
+    .dark-mode {
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+
+    .dark-mode .tab-button,
+    .dark-mode .bottom-button {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .dark-mode .tab-button:hover,
+    .dark-mode .bottom-button:hover {
+      background-color: #555;
+    }
+
+    .dark-mode .pink {
+      color: #ff69b4;
+    }
+  </style>
+</head>
+<body>
+  <h1>سعاد عادل</h1>
+
+  <!-- زرار الترحيب -->
+  <button class="tab-button" onclick="sayHello()">اضغط هنا للترحيب</button>
+
+  <!-- زرار تفعيل الوضع الليلي -->
+  <button class="tab-button" onclick="toggleDarkMode()">تفعيل الوضع الليلي 🌙</button>
+
+  <div class="tabs">
+    <button class="tab-button" onclick="showContent('info')">معلومات عن المالك</button>
+    <button class="tab-button" onclick="showContent('goals')">أهداف المالك</button>
+    <button class="tab-button" onclick="showContent('degree')">المؤهل</button>
+    <button class="tab-button" onclick="showContent('friends')">أصحاب المالك</button>
+    <button class="tab-button" onclick="showContent('inspiration')">سر إلهامي</button>
+  </div>
+
+  <div class="bottom-buttons">
+    <button class="bottom-button" onclick="showContent('back')">رجوع للخلف</button>
+    <button class="bottom-button" onclick="showContent('contact')">للتواصل مع المالك</button>
+  </div>
+
+  <div class="content" id="tabContent">
+    اضغط على تابة لعرض المعلومات.
+  </div>
+
+  <script>
+    function sayHello() {
+      alert("أهلاً وسهلاً بيك في موقع سعاد عادل! 💖✨");
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    function showContent(tab) {
+      let content = document.getElementById('tabContent');
+      switch(tab) {
+        case 'info':
+          content.innerHTML = "Name: Suad Adel<br>السن: 22 سنة<br>الهوايات: القراءة، التصميم، المشي";
+          break;
+        case 'goals':
+          content.innerHTML = "أهدافي المستقبلية: أن أكون مصممة مواقع محترفة وأن أبدأ مشروعي الخاص إن شاء الله.";
+          break;
+        case 'degree':
+          content.innerHTML = "المؤهل: <br>ليسانس تربية وآداب إنجليزي";
+          break;
+        case 'friends':
+          content.innerHTML = "أصحابي: <span class='pink'>رحمه صلاح</span> 💖";
+          break;
+        case 'inspiration':
+          content.innerHTML = "سر إلهامي: ماما: هدي شتات ❤️<br>بابا: عادل النشار ❤️<br>رحومتي: رحمه صلاح 💖";
+          break;
+        case 'back':
+          content.innerHTML = "رجعت للقائمة 😊 اضغط على تابة لعرض المعلومات.";
+          break;
+        case 'contact':
+          content.innerHTML = "رقم الهاتف: 01050209817 ☎️";
+          break;
+        default:
+          content.innerHTML = "اضغط على تابة لعرض المعلومات.";
+      }
+    }
+  </script>
+</body>
+</html>
